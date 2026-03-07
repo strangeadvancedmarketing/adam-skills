@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}} | {{SERVICE_TYPE}} in {{CITY}}, {{STATE}}</title>
+    <meta name="description" content="{{BUSINESS_NAME}} - Professional {{SERVICE_TYPE}} serving {{CITY}}, {{STATE}} and surrounding areas. Call {{PHONE}} for a free estimate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-700);
+            background: var(--white);
+        }
+        
+        header {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .phone-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .phone-link:hover { color: var(--primary); }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-700) 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--gray-200);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            padding: 4rem 1.5rem;
+            background: var(--gray-100);
+        }
+        
+        .features-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p { color: var(--gray-500); }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+        
+        .about {
+            padding: 4rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .about p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .cta-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-phone {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .cta-phone:hover { transform: scale(1.05); }
+        
+        .service-area {
+            padding: 3rem 1.5rem;
+            background: var(--gray-100);
+            text-align: center;
+        }
+        
+        .service-area h3 {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .service-area p { color: var(--gray-500); }
+        
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-500);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        footer p { margin-bottom: 0.5rem; }
+        footer a { color: var(--gray-200); text-decoration: none; }
+        footer a:hover { color: var(--white); }
+        
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .hero { padding: 3rem 1rem; }
+            .cta-button, .cta-phone { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">{{BUSINESS_NAME}}</a>
+            <a href="tel:{{PHONE}}" class="phone-link">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                {{PHONE}}
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>{{BUSINESS_NAME}}</h1>
+        <p class="tagline">{{TAGLINE}}</p>
+        <a href="tel:{{PHONE}}" class="cta-button">Get Your Free Estimate</a>
+    </section>
+    
+    <section class="features">
+        <div class="features-inner">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#10003;</div>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed and insured for your peace of mind. We stand behind every job we do.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9733;</div>
+                    <h3>Quality Workmanship</h3>
+                    <p>We use only premium materials and proven techniques for results that last.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9742;</div>
+                    <h3>Free Estimates</h3>
+                    <p>Get a detailed quote at no cost. No pressure, no obligation - just honest pricing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about">
+        <h2>About {{BUSINESS_NAME}}</h2>
+        <p>{{SERVICE_DESCRIPTION}}</p>
+        <p>Serving {{CITY}} and the surrounding {{STATE}} communities, we're committed to delivering exceptional results on every project.</p>
+    </section>
+    
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Call now for a free, no-obligation estimate</p>
+        <a href="tel:{{PHONE}}" class="cta-phone">{{PHONE}}</a>
+    </section>
+    
+    <section class="service-area">
+        <h3>Proudly Serving</h3>
+        <p>{{CITY}}, {{STATE}} and surrounding areas</p>
+    </section>
+    
+    <footer>
+        <p>&copy; {{YEAR}} {{BUSINESS_NAME}}. All rights reserved.</p>
+        <p><a href="tel:{{PHONE}}">{{PHONE}}</a></p>
+    </footer>
+</body>
+</html>

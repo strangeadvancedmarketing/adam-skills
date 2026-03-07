@@ -1,0 +1,11 @@
+.git/
+*.pyc
+__pycache__/
+*.egg-info/
+.env
+*.db
+*.sqlite
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

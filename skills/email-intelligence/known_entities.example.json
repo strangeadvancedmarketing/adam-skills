@@ -1,0 +1,69 @@
+{
+  "high_priority_senders": [
+    {
+      "name": "Westlake Financial",
+      "_patterns": ["westlake", "auto loan", "payment"],
+      "category": "debt_collection",
+      "urgency_bump": 3
+    },
+    {
+      "name": "Florida Department",
+      "_patterns": ["florida.gov", "dept of revenue", "tax", "child support"],
+      "category": "government_legal",
+      "urgency_bump": 4
+    },
+    {
+      "name": "Landlord Management",
+      "_patterns": ["rent", "lease", "eviction", "notice"],
+      "category": "housing_crisis",
+      "urgency_bump": 4
+    },
+    {
+      "name": "Broward County Clerk",
+      "_patterns": ["clerk", "county", "court", "filing"],
+      "category": "legal",
+      "urgency_bump": 4
+    }
+  ],
+  "business_contacts": [
+    {
+      "name": "Carlos",
+      "business": "GT Synthetic Turf",
+      "phone": "786-728-2470",
+      "category": "contractor",
+      "urgency_bump": 1
+    },
+    {
+      "name": "Raysa",
+      "business": "Creative Grounds",
+      "phone": "305-776-9427",
+      "category": "contractor",
+      "urgency_bump": 1
+    },
+    {
+      "name": "Ralph",
+      "business": "Let's Get Turf",
+      "phone": "305-219-6954",
+      "category": "contractor",
+      "urgency_bump": 1
+    }
+  ],
+  "personal_contacts": [
+    {
+      "name": "Family",
+      "_patterns": ["@gmail.com - contains personal names"],
+      "category": "personal",
+      "urgency_bump": 2
+    }
+  ],
+  "urgent_keywords": {
+    "critical": ["eviction", "court", "deadline", "legal", "lawsuit", "summons", "warrant"],
+    "financial_urgent": ["payment due", "past due", "collections", "final notice", "demand"],
+    "tax_legal": ["refund status", "tax return", "audit", "IRS", "assessment"],
+    "deadline": ["expire", "expires", "by tomorrow", "48 hours", "24 hours", "tonight"]
+  },
+  "noise_signals": {
+    "auto_delete": ["unsubscribe", "promotional", "newsletter", "sale", "discount", "offer expires"],
+    "low_priority": ["social media", "linkedin", "facebook", "marketing", "survey"]
+  }
+}
