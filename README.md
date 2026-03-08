@@ -2,7 +2,7 @@
 
 The official skill library for the [Adam Framework](https://github.com/strangeadvancedmarketing/Adam).
 
-Adam is a locally-hosted AI assistant with persistent memory. This repo extends him with real-world capabilities — web search, email intelligence, screen vision, lead generation, weather, news, and more.
+Adam is a locally-hosted AI assistant with persistent memory. This repo extends him with real-world capabilities — web search, email intelligence, screen vision, lead generation, weather, news, system monitoring, and more.
 
 ---
 
@@ -18,6 +18,9 @@ Skills are organized into two tracks:
 | [news-headlines](skills/news-headlines/) | Top headlines via RSS | None |
 | [notes](skills/notes/) | Save notes to your AdamsVault | None |
 | [morning-briefing](skills/morning-briefing/) | Weather + news + unread email count in one shot | Gmail app password |
+| [system-health](skills/system-health/) | CPU, RAM, disk, top processes — proactive resource alerts | `pip install psutil` |
+| [uptime-check](skills/uptime-check/) | Ping your live endpoints, flag anything down | None |
+
 
 ### 🔵 Intelligence Skills — Built on Adam's existing tools
 
@@ -43,9 +46,9 @@ Skills are organized into two tracks:
 # Clone into your OpenClaw skills directory
 cd C:\Users\<you>\.openclaw\workspace\skills
 git clone https://github.com/strangeadvancedmarketing/adam-skills.git
+cd adam-skills
+.\install.ps1
 ```
-
-Then copy the skill(s) you want into your active skills directory and follow the README in each skill folder.
 
 ---
 
@@ -56,13 +59,13 @@ These skills run **on top of** the Adam Framework. They assume:
 - OpenClaw gateway is live on `ws://127.0.0.1:18789`
 - You have the email plugin configured (for email-based skills)
 
-Skills that need external APIs will tell you exactly what keys are required and where to get them — for free.
+Skills that need external APIs will tell you exactly what keys are required and where to get them.
 
 ---
 
 ## Plugins vs Skills
 
-**Plugins** (in `/plugins/`) are compiled OpenClaw extensions that give Adam new native tools. The email plugin is the primary one — it gives Adam 10 Gmail tools: search, read, send, delete, move, flag, bulk operations, and sender analysis.
+**Plugins** (in `/plugins/`) are compiled OpenClaw extensions that give Adam new native tools. The email plugin is the primary one — 10 Gmail tools: search, read, send, delete, move, flag, bulk operations, and sender analysis.
 
 **Skills** (in `/skills/`) are SKILL.md instruction files + optional Python/JS scripts that teach Adam *how to use* those tools in meaningful ways.
 

@@ -1,0 +1,18 @@
+# Uptime Check — URL List
+# One URL per line. Blank lines and lines starting with # are ignored.
+# Edit this file with the endpoints you want to monitor.
+
+# Your main website
+https://example.com
+
+# GitHub Pages site
+https://yourusername.github.io/your-repo
+
+# API health endpoint
+https://api.example.com/health
+
+# E-commerce store
+https://yourstore.myshopify.com
+
+# Any webhook or dashboard you run
+https://yourdashboard.example.com
