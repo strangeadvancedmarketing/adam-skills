@@ -3,7 +3,7 @@
 Transform email from a dumping ground into a true sensory system. Proactive triage, relationship awareness, and action-ready alerts.
 
 ## Core Philosophy
-Email is not a task list. It's a **signal stream**. Most of it is noise. Some of it is critical. The intelligence is in **knowing the difference before the human drowns**.
+Email is not a task list. It's a **signal stream**. Most of it is noise. Some of it is critical. The intelligence is in **knowing the difference before you drown**.
 
 ## The Intelligence Layers
 
@@ -26,7 +26,7 @@ For each email:
    - Urgent: Legal, financial, eviction, tax, deadline within 48h
    - Important: Business, revenue, partnership, known contact
    - Noise: Marketing, newsletter, promotional
-   - Relationship: Family, friend, personal history
+   - Relationship: Personal history
    - Unknown: Needs assessment
 
 3. SCORE URGENCY (1-10)
@@ -44,12 +44,9 @@ For each email:
 
 ### Layer 3: Enrich (Relationship Context)
 ```
-KNOWN ENTITIES (from USER.md + memory):
-- Westlake Financial → Debt collector, HIGH PRIORITY
-- Florida Dept of Revenue → Tax/legal, HIGH PRIORITY
-- Carlos → Turf contractor, active relationship
-- Raysa → Turf contractor, active relationship
-- Family contacts → Personal priority
+KNOWN ENTITIES (from known_entities.json + memory):
+- Configure high_priority_senders in known_entities.json
+- Examples: debt collectors, government agencies, key clients
 
 ENRICHMENT RULES:
 - If sender matches known entity, escalate priority
@@ -106,13 +103,13 @@ Suggested action: {action_verb}
 "Check my email" → email_intelligence_check(limit=20)
 
 # Check specific sender
-"Any emails from Westlake?" → email_search + filter
+"Any emails from [sender name]?" → email_search + filter
 
 # Digest mode
 "Email digest" → top 5 by score, one-liner each
 
 # Mark as handled
-"I handled the Westlake email" → log action, update relationship
+"I handled that email" → log action, update relationship
 ```
 
 ## Safety Rules
@@ -126,20 +123,20 @@ Suggested action: {action_verb}
 
 - `email-intelligence.db` → SQLite: sender_history, scores, actions
 - `last_check.json` → timestamp of last scan
-- `known_entities.json` → relationship definitions, priorities
+- `known_entities.json` → relationship definitions, priorities (copy from known_entities.example.json to start)
 
 ## Success Metrics
 
-- User opens email < 2x per day (down from panic-checking)
+- Fewer than 2 manual email opens per day (down from panic-checking)
 - Critical emails alerted within 4 hours of arrival
 - False positive rate < 10% (alerts that didn't need immediate attention)
 
 ## Notes
 
-This is the **proof-of-concept sense**. Pattern applies to:
-- File system monitoring (TurfTracker leads)
+This is a **proof-of-concept sense**. The pattern applies to:
+- File system monitoring (new leads, inbound webhooks)
 - Calendar awareness (upcoming deadlines)
 - Project health (git status, failing builds)
-- Web hooks (Shopify orders, form submissions)
+- Web hooks (e-commerce orders, form submissions)
 
 Master email intelligence → clone pattern → scale to ecosystem.

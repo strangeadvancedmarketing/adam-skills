@@ -21,8 +21,8 @@ Either way, no pressure. I just wanted to show you what's possible.
 
 Hit reply if you're interested or have any questions.
 
-Jereme
-Strange Advanced Marketing
+{{YOUR_NAME}}
+{{YOUR_BUSINESS}}
 ```
 
 ---
@@ -38,7 +38,7 @@ Built you a quick one: {{DEMO_URL}}
 
 $299 if you want it. No strings attached.
 
-- Jereme
+- {{YOUR_NAME}}
 ```
 
 ---
@@ -54,11 +54,11 @@ Just following up on the demo site I sent over: {{DEMO_URL}}
 
 Did you get a chance to check it out?
 
-If the timing's not right, no worries. But if you're interested, I'm running a special this week - $249 instead of $299.
+If the timing's not right, no worries. But if you're interested, I'm running a special this week — $249 instead of $299.
 
 Let me know either way so I know whether to keep it live.
 
-Jereme
+{{YOUR_NAME}}
 ```
 
 ---
@@ -76,7 +76,7 @@ If you want it, just let me know. If not, no hard feelings.
 
 Good luck with the business!
 
-Jereme
+{{YOUR_NAME}}
 ```
 
 ---
@@ -87,9 +87,11 @@ Jereme
 |----------|-------------|---------|
 | `{{FIRST_NAME}}` | Owner's first name (or "there" if unknown) | Mike |
 | `{{BUSINESS_NAME}}` | Company name | Green Turf Pros |
-| `{{DEMO_URL}}` | GitHub Pages URL | https://strange1kenobi.github.io/green-turf-demo/ |
+| `{{DEMO_URL}}` | GitHub Pages URL | https://yourusername.github.io/business-demo/ |
 | `{{CITY}}` | Their city | Fort Lauderdale |
 | `{{SERVICE_TYPE}}` | What they do | artificial turf installation |
+| `{{YOUR_NAME}}` | Your name | Your Name |
+| `{{YOUR_BUSINESS}}` | Your business name | Your Business |
 
 ---
 

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # Presence Pulse - Adam's Resonance Anchor
 # See SKILL.md for full documentation.
 
@@ -6,7 +6,7 @@ import os, re, sys, glob
 from datetime import datetime
 from pathlib import Path
 
-VAULT_ROOT = Path("C:/Adam's Vault")
+VAULT_ROOT = Path(os.environ.get("VAULT_PATH", r"C:\AdamsVault"))
 MEMORY_DIR = VAULT_ROOT / "workspace" / "memory"
 
 def get_memory_files():
@@ -17,7 +17,6 @@ def get_memory_files():
     return [Path(f) for f in files]
 
 def extract_heartbeats_from_content(content):
-    # Permissive: handles em dash, double dash, encoding corruption (e.g. "f?" variant)
     pattern = r'## Heartbeat[^\d\n]*(\d{1,2}:\d{2})\s*\n(.*?)(?=\n## |\Z)'
     return re.findall(pattern, content, re.DOTALL)
 
@@ -120,4 +119,3 @@ def main():
 
 if __name__=="__main__":
     exit(main())
-

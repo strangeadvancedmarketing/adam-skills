@@ -1,6 +1,6 @@
 # Notes Skill
 
-**Purpose:** Save notes, ideas, and reminders directly to your AdamsVault.  
+**Purpose:** Save notes, ideas, and reminders directly to your vault.  
 **Setup required:** None. Writes to your local vault directory.
 
 ## Trigger phrases
@@ -28,32 +28,34 @@ python "scripts/notes.py" list 10    # Show last 10
 
 ### Search notes
 ```bash
-python "scripts/notes.py" search "shopify"
+python "scripts/notes.py" search "keyword"
 ```
 
 ## Where notes are saved
 
-`C:\AdamsVault\workspace\notes\YYYY-MM-DD.md`
+`<vault>/workspace/notes/YYYY-MM-DD.md`
 
 Each day gets its own file. Notes are appended chronologically with timestamps.
 
 ```markdown
 ## 2:34 PM
-Shopify order volume was up 23% this week. Consider restocking Barrel Vaults.
+Order volume was up 23% this week. Consider restocking inventory.
 
 ## 4:17 PM
-Follow up with Carlos about the Davie turf job next Tuesday.
+Follow up with supplier about the pending order next Tuesday.
 ```
 
 ## Why this matters
 
 Notes written here are automatically picked up by Adam's memory system (Layer 2 — memory-core plugin scans the vault). Write a note once. Adam remembers it forever.
 
+## Configuration
+
+Path defaults to `C:\AdamsVault\workspace\notes`. Override with the `VAULT_PATH` environment variable:
+```
+VAULT_PATH=C:\YourVault
+```
+
 ## Dependencies
 
 - Python 3.x (stdlib only)
-- AdamsVault directory must exist at `C:\AdamsVault\workspace\notes\`
-
-## Customization
-
-Change the vault path in `scripts/notes.py` line 8 to match your vault location.

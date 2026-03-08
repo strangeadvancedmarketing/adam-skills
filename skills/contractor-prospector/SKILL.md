@@ -29,13 +29,13 @@
 
 ### Search Strategy
 
-Use `mcporter call firecrawl.firecrawl_search` for ALL prospecting. Brave is disabled — never reference it.
+Use `mcporter call firecrawl.firecrawl_search` for ALL prospecting.
 
 **Query Templates:**
 ```
-"{service} {city} FL"
+"{service} {city} {state}"
 "site:facebook.com {service} {city}"
-"site:yelp.com {service} near {city} FL"
+"site:yelp.com {service} near {city} {state}"
 ```
 
 **What you're looking for:**
@@ -44,25 +44,29 @@ Use `mcporter call firecrawl.firecrawl_search` for ALL prospecting. Brave is dis
 - Yelp/Google listings with phone but no website
 - Facebook business pages
 
-### Cities to Target (South Florida focus)
-Miami, Fort Lauderdale, Boca Raton, West Palm Beach, Hollywood FL, Pompano Beach, Coral Springs, Davie, Plantation, Sunrise, Pembroke Pines, Miramar, Hialeah, Homestead, Doral
+### Cities to Target
+Configure based on your service area. South Florida example:
+```
+Miami, Fort Lauderdale, Boca Raton, West Palm Beach, Hollywood, 
+Pompano Beach, Coral Springs, Plantation, Sunrise, Pembroke Pines
+```
 
 ### Prospect Data to Capture
 
 For each prospect, collect:
 ```json
 {
-  "business_name": "Green Turf Pros",
-  "phone": "954-555-1234",
+  "business_name": "Example Pro Services",
+  "phone": "555-000-1234",
   "email": null,
-  "city": "Davie",
+  "city": "Your City",
   "state": "FL",
   "service_type": "artificial turf installation",
-  "social_url": "https://facebook.com/greenturfpros",
-  "social_bio": "Professional turf installation. 10+ years experience.",
+  "social_url": "https://facebook.com/examplebusiness",
+  "social_bio": "Professional installation. 10+ years experience.",
   "found_via": "facebook search",
   "has_website": false,
-  "source_date": "2026-02-19"
+  "source_date": "2026-01-01"
 }
 ```
 
@@ -83,7 +87,7 @@ For each prospect, collect:
 - Reviews can show quality/style
 
 **Finding Email (if not listed):**
-- Try: info@{businessname}.com (test with simple ping)
+- Try: info@{businessname}.com
 - Look for email in FB "About"
 - Sometimes listed in Google Maps listing
 
@@ -94,7 +98,7 @@ For each prospect, collect:
 ### Template System
 
 Use the HTML template at:
-`C:/Users/ajsup/.openclaw/workspace/skills/contractor-prospector/templates/contractor-site.html`
+`{skills_dir}/contractor-prospector/templates/contractor-site.html`
 
 **Template Variables:**
 - `{{BUSINESS_NAME}}` - Company name
@@ -113,17 +117,14 @@ Read the template, replace all `{{VARIABLES}}` with actual values.
 
 **Step 2: Create repo and push**
 ```powershell
-$slug = "business-name-demo"  # lowercase, hyphens
-$tempDir = "C:\Users\ajsup\.openclaw\workspace\temp-deploy"
+$slug = "business-name-demo"   # lowercase, hyphens
+$tempDir = "$env:TEMP\contractor-deploy-$slug"
 
-# Create temp directory
 New-Item -ItemType Directory -Path $tempDir -Force
 Set-Location $tempDir
 
-# Save the filled HTML
 $html | Out-File -FilePath "index.html" -Encoding utf8
 
-# Initialize and push
 git init
 git add .
 git commit -m "Initial demo site"
@@ -135,7 +136,7 @@ gh api "repos/$(gh api user --jq '.login')/$slug/pages" -X POST -f "source[branc
 
 **Step 3: Get the live URL**
 ```
-https://{github-username}.github.io/{slug}/
+https://{your-github-username}.github.io/{slug}/
 ```
 
 ---
@@ -163,8 +164,8 @@ No pressure. Just wanted to show you what's possible.
 
 Hit reply if interested.
 
-Jereme
-Strange Advanced Marketing
+[Your Name]
+[Your Business]
 ```
 
 **Send using:**
@@ -193,7 +194,7 @@ When told to "prospect" or "run the prospector":
 
 ## QUICK COMMANDS
 
-- `"Prospect turf companies in Miami"` - Full workflow for one city
+- `"Prospect [service type] companies in [city]"` - Full workflow for one city
 - `"Build a site for [Business Name]"` - Just build site
 - `"Send outreach to [email] for [business]"` - Just send email
 - `"Show me today's prospects"` - Review what's been found

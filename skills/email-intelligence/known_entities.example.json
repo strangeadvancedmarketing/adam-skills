@@ -1,49 +1,43 @@
 {
   "high_priority_senders": [
     {
-      "name": "Westlake Financial",
-      "_patterns": ["westlake", "auto loan", "payment"],
+      "name": "Auto Loan Servicer",
+      "_patterns": ["auto loan", "vehicle payment", "payment due"],
       "category": "debt_collection",
       "urgency_bump": 3
     },
     {
-      "name": "Florida Department",
-      "_patterns": ["florida.gov", "dept of revenue", "tax", "child support"],
+      "name": "State Department of Revenue",
+      "_patterns": ["dept of revenue", "state.gov", "tax notice", "child support"],
       "category": "government_legal",
       "urgency_bump": 4
     },
     {
-      "name": "Landlord Management",
-      "_patterns": ["rent", "lease", "eviction", "notice"],
+      "name": "Property Management",
+      "_patterns": ["rent", "lease", "eviction", "notice to vacate"],
       "category": "housing_crisis",
       "urgency_bump": 4
     },
     {
-      "name": "Broward County Clerk",
-      "_patterns": ["clerk", "county", "court", "filing"],
+      "name": "County Clerk / Court",
+      "_patterns": ["clerk", "county", "court", "filing", "summons"],
       "category": "legal",
       "urgency_bump": 4
     }
   ],
   "business_contacts": [
     {
-      "name": "Carlos",
-      "business": "GT Synthetic Turf",
-      "phone": "786-728-2470",
+      "name": "Contractor A",
+      "business": "Example Contracting LLC",
+      "phone": "555-000-0001",
       "category": "contractor",
-      "urgency_bump": 1
+      "urgency_bump": 1,
+      "_note": "Replace with your actual contacts"
     },
     {
-      "name": "Raysa",
-      "business": "Creative Grounds",
-      "phone": "305-776-9427",
-      "category": "contractor",
-      "urgency_bump": 1
-    },
-    {
-      "name": "Ralph",
-      "business": "Let's Get Turf",
-      "phone": "305-219-6954",
+      "name": "Contractor B",
+      "business": "Example Services Inc",
+      "phone": "555-000-0002",
       "category": "contractor",
       "urgency_bump": 1
     }
@@ -51,7 +45,7 @@
   "personal_contacts": [
     {
       "name": "Family",
-      "_patterns": ["@gmail.com - contains personal names"],
+      "_patterns": ["add email patterns for family members here"],
       "category": "personal",
       "urgency_bump": 2
     }

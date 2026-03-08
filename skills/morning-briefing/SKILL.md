@@ -26,11 +26,11 @@ NEWS
 2. OpenAI announces new reasoning model · TechCrunch · 4h
 3. Housing market shows signs of cooling · Bloomberg · 5h
 4. SpaceX launches 24 Starlink satellites · The Verge · 6h
-5. Miami Heat beat Celtics 112-104 · ESPN · 8h
+5. Local sports team wins · ESPN · 8h
 
 EMAIL
 📬 14 unread messages
-⚠️  Priority: "Payment confirmation required" from Westlake Financial (2h ago)
+⚠️  Priority: Urgent subject line from known sender (2h ago)
 ```
 
 ## How it works
@@ -38,7 +38,7 @@ EMAIL
 Adam runs this sequence:
 1. Calls `scripts/weather.py` with your home city
 2. Calls `scripts/news.py` for top 5 general headlines  
-3. Calls `email_search` (native tool) with empty query — grabs last 20, counts unread, flags any urgent sender
+3. Calls `email_search` (native tool) — grabs last 20, counts unread, flags any urgent sender
 4. Assembles everything into one clean briefing
 5. Voices it via TTS and sends to Telegram if configured
 
@@ -47,9 +47,9 @@ Adam runs this sequence:
 In your vault or `openclaw.json`:
 
 ```
-Home city: Miami, FL
+Home city: Your City, ST
 Morning briefing news categories: general, tech
-Urgent email senders: Westlake Financial, IRS, Florida Dept of Revenue
+Urgent email senders: configure in known_entities.json
 ```
 
 ## Dependencies
@@ -62,7 +62,7 @@ Urgent email senders: Westlake Financial, IRS, Florida Dept of Revenue
 ## Running standalone
 
 ```bash
-python "scripts/morning_briefing.py" "Miami, FL"
+python "scripts/morning_briefing.py" "Your City, ST"
 ```
 
 This runs weather + news locally (no email). Add `--email` flag to include email count if you have credentials configured.
@@ -71,4 +71,4 @@ This runs weather + news locally (no email). Add `--email` flag to include email
 
 - Designed to be spoken aloud via TTS — short, punchy, no fluff
 - If email plugin isn't configured, the email section is skipped gracefully
-- "Urgent senders" list lets Adam flag emails from known high-priority contacts without reading every message
+- Configure urgent senders in `known_entities.json` to flag priority emails

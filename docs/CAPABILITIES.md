@@ -9,7 +9,7 @@ Skills in this repo add to or unlock these capabilities.
 
 | Layer | What it does |
 |-------|-------------|
-| Layer 1: Vault Injection | Markdown files from AdamsVault injected at every session start via SENTINEL |
+| Layer 1: Vault Injection | Markdown files from your vault injected at every session start via SENTINEL |
 | Layer 2: memory-core | Active mid-session search via `memory_search` / `memory_get` |
 | Layer 3: Neural Graph | Associative recall — 7,000+ neurons, 29,000+ synapses, Hebbian learning |
 | Layer 4: Nightly Reconcile | Gemini-powered consolidation into `Adam_Core_Memory.md` every night |
@@ -49,8 +49,10 @@ Skills in this repo add to or unlock these capabilities.
 |-------|-----------|
 | weather | Current conditions + forecast — zero config |
 | news-headlines | Top headlines from RSS — zero config |
-| notes | Write notes to AdamsVault |
+| notes | Write notes to your vault |
 | morning-briefing | Weather + news + unread email in one command |
+| system-health | CPU, RAM, disk, top processes — proactive resource alerts |
+| uptime-check | Ping your live endpoints, report up/down |
 
 ### Intelligence Skills
 | Skill | Capability |
@@ -58,7 +60,7 @@ Skills in this repo add to or unlock these capabilities.
 | email-intelligence | Proactive triage, urgency scoring (1-10), relationship context, Telegram alerts |
 | synthesis | Latent pattern recognition — connects micro to macro across domains |
 | presence-pulse | Loads emotional resonance from previous session heartbeat |
-| inner-eye | Screen vision (3 monitors) + webcam capture + Gemini analysis |
+| inner-eye | Screen vision (multi-monitor) + webcam capture + Gemini analysis |
 
 ### Action Skills
 | Skill | Capability |
@@ -69,7 +71,7 @@ Skills in this repo add to or unlock these capabilities.
 
 ## Community Skills (clawhub)
 
-These install via `clawhub install <name>` and live in your skills directory:
+These install via `clawhub install <n>` and live in your skills directory:
 
 | Skill | Capability |
 |-------|-----------|
@@ -86,8 +88,8 @@ These install via `clawhub install <name>` and live in your skills directory:
 |-----------|-------------|
 | SENTINEL.ps1 | Watchdog — monitors gateway + Kokoro every 30s, auto-restarts on death |
 | reconcile_memory.py | Nightly Gemini consolidation of session memory into core vault |
-| coherence_monitor.py | 33-test suite verifying all 4 memory layers are healthy |
-| Emergency Reconstruction | One-click restore of all 16 core files from verified snapshot |
+| coherence_monitor.py | Test suite verifying all 4 memory layers are healthy |
+| Emergency Reconstruction | One-click restore of all core files from verified snapshot |
 
 ---
 

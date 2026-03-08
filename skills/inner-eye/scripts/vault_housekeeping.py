@@ -1,6 +1,5 @@
-﻿# vault_housekeeping.py - Adam's Visual Archive Cleaner
-# Scans the vision archives folder and deletes .png files older than 14 days.
-# Safe to run at any time — only removes files past the retention threshold.
+# vault_housekeeping.py - Adam's Visual Archive Cleaner
+# Scans the vision archives folder and deletes .png files older than the retention threshold.
 #
 # Usage:
 #   python vault_housekeeping.py
@@ -9,7 +8,8 @@ import os
 import sys
 from datetime import datetime, timedelta
 
-ARCHIVE_DIR    = r"C:\AdamsVault\workspace\vision\archives"
+VAULT_ROOT     = os.environ.get("VAULT_PATH", r"C:\AdamsVault")
+ARCHIVE_DIR    = os.path.join(VAULT_ROOT, "workspace", "vision", "archives")
 RETENTION_DAYS = 14
 
 def housekeeping():
@@ -18,10 +18,10 @@ def housekeeping():
         print("[Housekeeping] Nothing to clean.")
         return
 
-    cutoff   = datetime.now() - timedelta(days=RETENTION_DAYS)
-    all_png  = [f for f in os.listdir(ARCHIVE_DIR) if f.lower().endswith(".png")]
-    deleted  = []
-    errors   = []
+    cutoff  = datetime.now() - timedelta(days=RETENTION_DAYS)
+    all_png = [f for f in os.listdir(ARCHIVE_DIR) if f.lower().endswith(".png")]
+    deleted = []
+    errors  = []
 
     for filename in all_png:
         filepath = os.path.join(ARCHIVE_DIR, filename)
@@ -41,14 +41,12 @@ def housekeeping():
 
     if deleted:
         print(f"[Housekeeping] Deleted {len(deleted)} old screenshot(s):")
-        for f in deleted:
-            print(f"  - {f}")
+        for f in deleted: print(f"  - {f}")
     else:
         print("[Housekeeping] No files old enough to delete.")
 
     if errors:
-        for e in errors:
-            print(f"[Housekeeping] ERROR: {e}", file=sys.stderr)
+        for e in errors: print(f"[Housekeeping] ERROR: {e}", file=sys.stderr)
 
     print(f"[Housekeeping] Complete. Deleted: {len(deleted)} | Remaining: {remaining}")
 

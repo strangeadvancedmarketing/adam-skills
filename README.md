@@ -16,11 +16,10 @@ Skills are organized into two tracks:
 |-------|-------------|-------|
 | [weather](skills/weather/) | Current conditions + forecast via wttr.in | None |
 | [news-headlines](skills/news-headlines/) | Top headlines via RSS | None |
-| [notes](skills/notes/) | Save notes to your AdamsVault | None |
+| [notes](skills/notes/) | Save notes to your vault | None |
 | [morning-briefing](skills/morning-briefing/) | Weather + news + unread email count in one shot | Gmail app password |
 | [system-health](skills/system-health/) | CPU, RAM, disk, top processes — proactive resource alerts | `pip install psutil` |
 | [uptime-check](skills/uptime-check/) | Ping your live endpoints, flag anything down | None |
-
 
 ### 🔵 Intelligence Skills — Built on Adam's existing tools
 
